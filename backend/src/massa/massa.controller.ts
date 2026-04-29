@@ -12,4 +12,20 @@ export class MassaController {
             unidade: 'g'
         };
     }
+
+    @Get('kg-para-libras/:valor')
+    getLibras(@Param('valor', ParseFloatPipe) v: number) {
+        return {
+            resultado: this.service.quilosParaLibras(v),
+            unidade: 'lb'
+        };
+    }
+
+    @Get('kg-para-oncas/:valor')
+    getOncas(@Param('valor', ParseFloatPipe) v: number) {
+        return {
+            resultado: this.service.quilosParaOncas(v),
+            unidade: 'oz'
+        };
+    }
 }
